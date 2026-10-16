@@ -16,9 +16,13 @@ const Movimentacao = sequelize.define('Movimentacao', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
     },
+    livro_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
     usuario_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
     },
 }, {
     tableName: 'movimentacaos',

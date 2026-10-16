@@ -135,13 +135,13 @@ CREATE TABLE `movimentacaos` (
   `data` datetime DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `livro_id` int(11) DEFAULT NULL,
-  `usuario_id` int(11) DEFAULT NULL,
+  `livro_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `livro_id` (`livro_id`),
   KEY `movimentacaos_usuario_id_idx` (`usuario_id`),
-  CONSTRAINT `movimentacaos_livro_fk` FOREIGN KEY (`livro_id`) REFERENCES `livros` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `movimentacaos_usuario_fk` FOREIGN KEY (`usuario_id`) REFERENCES `Usuarios` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `movimentacaos_livro_fk` FOREIGN KEY (`livro_id`) REFERENCES `livros` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `movimentacaos_usuario_fk` FOREIGN KEY (`usuario_id`) REFERENCES `Usuarios` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -153,7 +153,7 @@ SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `movimentacaos` WRITE;
 /*!40000 ALTER TABLE `movimentacaos` DISABLE KEYS */;
 INSERT INTO `movimentacaos` VALUES
-(5,'entrada',2,'2026-09-28 23:56:18','2026-09-28 23:56:18','2026-09-28 23:56:18',NULL,4);
+(5,'entrada',2,'2026-09-28 23:56:18','2026-09-28 23:56:18','2026-09-28 23:56:18',1,4);
 /*!40000 ALTER TABLE `movimentacaos` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;

@@ -20,6 +20,8 @@ Projeto desenvolvido como atividade avaliativa do curso técnico do SENAI. A apl
 - JSON Web Token (JWT)
 - bcrypt para criptografia de senhas
 - dotenv para variáveis de ambiente
+- HTML e CSS responsivos no frontend
+- Testes automatizados com o módulo nativo `node:test`
 
 ## Pré-requisitos
 
@@ -63,10 +65,31 @@ mariadb -u seu_usuario -p biblioteca_db < banco.sql
 5. Inicie a API:
 
 ```bash
-node app.js
+npm start
 ```
 
 A aplicação ficará disponível em `http://localhost:3000`.
+
+## Telas
+
+O Módulo 8 está disponível na pasta `public` e é servido pelo próprio Express:
+
+- `/` — login;
+- `/painel.html` — atalhos do sistema;
+- `/livros.html` — cadastro, busca, listagem e paginação;
+- `/movimentacoes.html` — registro e histórico de entradas e saídas.
+
+As telas preservam os IDs previstos para a integração com a API no Módulo 9. Nesta etapa, os dados exibidos nas tabelas são demonstrativos.
+
+## Testes
+
+Na pasta `src`, execute a suíte do Módulo 7:
+
+```bash
+npm test
+```
+
+Os dez casos automatizados cobrem login, JWT, permissões, livros, paginação, filtro e movimentações. O plano, os resultados esperados e a matriz de rastreabilidade estão em [`docs/plano-testes-modulo7.md`](docs/plano-testes-modulo7.md).
 
 ## Autenticação
 
@@ -178,6 +201,15 @@ O campo `tipo` aceita `entrada` ou `saida`. O sistema impede saídas maiores que
 ```text
 Biblioteca_Senai/
 ├── banco.sql
+├── docs/
+│   └── plano-testes-modulo7.md
+├── public/
+│   ├── css/
+│   │   └── estilo.css
+│   ├── index.html
+│   ├── livros.html
+│   ├── movimentacoes.html
+│   └── painel.html
 ├── README.md
 └── src/
     ├── app.js
@@ -187,7 +219,8 @@ Biblioteca_Senai/
     ├── controllers/
     ├── middlewares/
     ├── models/
-    └── routes/
+    ├── routes/
+    └── tests/
 ```
 
 - `controllers/`: regras de negócio e tratamento das requisições.
